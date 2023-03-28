@@ -1,0 +1,46 @@
+---
+log_level: trace
+ami:
+  host: 192.168.2.178 #same with the live configuration
+  user: cresmanager  #lain nani if i deploy sa live or sa tes
+  pass: grasya        # same as user
+  port: 5038      #default nani sa ami
+dialplan:
+  incoming_context:
+  - from-pstn
+  outgoing_context:
+  - macro-dialout-trunk
+  ext_context:
+  - macro-dial-one
+  - macro-dial
+  dial_context: from-internal
+# pbx:
+#   dids:
+#   - '561600'
+#   - '561610'
+#   - '561620'
+#   cid_format:
+#   - {expr: "^\\d{9}$", repl: "+998$0"}
+#   - {expr: "^\\d{7}$", repl: "+99878$0"}
+#   dial_format:
+#   - {expr: "^(\\+|)998(\\d{9})$", repl: "$2"}
+#bitrix24:
+ # default_user: 1
+  #webhook_url: https://mycrm.bitrix24.eu/rest/1/mytoken/ #weebhook url
+  #webhook_originate_token: my_originate_token
+  #webhook_endpoint_addr: "0.0.0.0:5678"
+  # rec_upload: "http://mypbx.example.org/recfiles/"
+  # create_leads: true
+  # search_format:
+  # - {expr: ".*", repl: "$0"}
+  # - {expr: "^\\+(\\d{5})(\\d{7})$", repl: "+$1 $2"} 				# +XXXXX XXXXXXX
+  # - {expr: "^\\+(\\d{5})(\\d{3})(\\d{2})(\\d{2})$", repl: "+$1 $2 $3 $4"}	# +XXXXX XXX XX XXX
+  # - {expr: "^\\+(\\d{5})(\\d{3})(\\d{2})(\\d{2})$", repl: "+$1 $2-$3-$4"}	# +XXXXX XXX-XX-XXX
+  # - {expr: "^\\+(\\d{5})(\\d{3})(\\d{2})(\\d{2})$", repl: "$1 $2-$3-$4"} 	# XXXXX XXX XX XX
+  # - {expr: "^\\+(\\d{5})(\\d{3})(\\d{2})(\\d{2})$", repl: "$2 $3 $4"}		# XXX XX XX
+  # - {expr: "^\\+(\\d{5})(\\d{3})(\\d{2})(\\d{2})$", repl: "$2-$3-$4"}		# XXX-XX-XX
+  # - {expr: "^\\+(\\d{5})(\\d{3})(\\d{2})(\\d{2})$", repl: "(+$1) $2-$3-$4"}	# (+XXXXX) XXX-XX-XX
+ suitecrm:
+  url: http://my.suitecrm/instance/
+  endpoint_token: my_endpoint_token
+   endpoint_addr: "0.0.0.0:8080"
