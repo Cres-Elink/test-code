@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "asterisk-ami-client": "^1.1.5",
+    "mysql": "^2.18.1"
+  }
+}

@@ -11,7 +11,7 @@ const amiClient = new ami({
 
 // Configure the MySQL connection to the SuiteCRM database
 const connection = mysql.createConnection({
-  host: '127.0.0.1',
+  host: 'localhost',
   user: 'root',
   password: '',
   database: 'orioncrm',
@@ -53,7 +53,7 @@ amiClient.on('event', (event) => {
     });
 
     // Check if the contact already exists in the Contacts module
-    const contactQuery = `SELECT id FROM contacts WHERE phone_mobile = '${phoneNumber}'`;
+    const contactQuery = `SELECT last_name FROM leads WHERE phone_mobile = '${phoneNumber}'  OR phone_home = '${phoneNumber}' OR phone_work = '${phoneNumber}'  OR phone_other = '${phoneNumber}'`;
     connection.query(contactQuery, (error, results, fields) => {
       if (error) {
         console.error('Error searching for contact:', error);
